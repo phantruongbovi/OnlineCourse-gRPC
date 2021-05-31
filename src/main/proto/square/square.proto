@@ -1,0 +1,27 @@
+syntax = "proto3";
+package square;
+option java_package = "com.proto.square";
+option java_multiple_files = true;
+
+message RectangleRequest {
+  int32 chieuDai = 1;
+  int32 chieuRong = 2;
+}
+
+message RectangleResponse {
+  int32 result = 1;
+}
+
+message RectangleManyTimesRequest{
+  int32 num1 = 1;
+  int32  num2 = 2;
+}
+
+message RectangleManyTimesResponse{
+  int32 result = 1;
+}
+
+service SquareService {
+  rpc Rectangle(RectangleRequest) returns (RectangleResponse) {}
+  rpc RectangleManyTimes(RectangleManyTimesRequest) returns (stream RectangleManyTimesResponse) {}
+}

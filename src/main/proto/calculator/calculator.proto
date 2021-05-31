@@ -1,0 +1,79 @@
+syntax = "proto3";
+package calculator;
+
+option java_package = "com.proto.calculator";
+
+option java_multiple_files = true;
+
+//UNARY
+message SumCalculateResquest {
+  int32 num1 = 1;
+  int32 num2 = 2;
+}
+
+message SumCalculateResponse {
+  int32  result = 1;
+}
+
+// STREAMING SERVER
+message DeviceCalculateRequest {
+  int32 num = 1;
+}
+
+message DeviceCalculateResponse {
+  int32 result = 1;
+}
+
+// STREAMING CLIENT
+message MedianCalculateRequest{
+  int32 num = 1;
+}
+
+message MedianCalculateResponse{
+  double result = 1;
+}
+
+// Bi-Direction Streaming
+message FindMaxRequest{
+  int32 num = 1;
+}
+
+message FindMaxRespone {
+  int32 result = 1;
+}
+
+message SquareErrorRequest{
+  int32 num = 1;
+}
+
+message SquareErrorResponse{
+  double result = 1;
+}
+
+message TradeWithDeadlineRequest{
+  int32 num = 1;
+}
+
+message TradeWithDeadlineResponse{
+  int32 result = 1;
+}
+
+service CalculateService {
+  // Unary
+  rpc SumCalculate(SumCalculateResquest) returns (SumCalculateResponse) {};
+
+  // Streaming server
+  rpc DeviceCalculate(DeviceCalculateRequest) returns (stream DeviceCalculateResponse) {};
+
+  // Streaming client
+  rpc MedianCalculate(stream MedianCalculateRequest) returns (MedianCalculateResponse) {};
+
+  // Bi-Di Streaming
+  rpc FindMaxCalculate(stream FindMaxRequest) returns (stream FindMaxRespone) {};
+
+  // SquareError
+  rpc SquareError(SquareErrorRequest) returns (SquareErrorResponse) {};
+
+  // With deadline
+  rpc TradeWithDeadline(TradeWithDeadlineRequest) returns (TradeWithDeadlineResponse) {};
+}
