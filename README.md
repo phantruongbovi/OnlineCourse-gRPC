@@ -15,3 +15,5 @@
 5. Security Doc in GRPC Java repo: https://github.com/grpc/grpc-java/blob/master/SECURITY.md
 6. Code Samples for Security: https://grpc.io/docs/guides/auth/
 7. gRPC-java-course: https://github.com/simplesteph/grpc-java-course
+8. server-reflection: https://github.com/grpc/grpc-java/blob/master/documentation/server-reflection-tutorial.md
+9. Evans cli: https://github.com/ktr0731/evans
