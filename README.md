@@ -8,7 +8,7 @@
 - Error Handling, Deadlines, SSL Encryption
 
 # Document
-1. gRPC: https://github.com/grpc/grpc
+1. gRPC: https://github.com/grpc/
 2. Error handling: https://grpc.io/docs/guides/error/
 3. Error example: https://avi.im/grpc-errors/
 4. gRPC and Deadlines: https://grpc.io/blog/deadlines/
