@@ -1,0 +1,68 @@
+syntax = "proto3";
+package blog;
+option java_package = "com.proto.blog";
+option java_multiple_files = true;
+
+message Blog{
+  string id = 1;
+  string auth_id = 2;
+  string title = 3;
+  string content = 4;
+}
+
+message BlogRequest{
+  Blog blog = 1; // the id shouldn't matter
+}
+
+message BlogResponse{
+  Blog blog = 1; // the id will correspond to the one in MongDB
+}
+
+message ReadBlogRequest {
+  string blog_id = 1;
+}
+
+message ReadBlogResponse {
+  Blog blog = 1;
+}
+
+message UpdateBlogRequest{
+  Blog blog = 1;
+}
+
+message UpdateBlogResponse{
+  Blog blog = 1;
+}
+
+message DeleteBlogRequest{
+  string blog_id = 1;
+}
+
+message DeleteBlogResponse{
+  string blog_id = 1;
+}
+
+message ListBlogRequest{
+
+}
+
+message ListBlogReponse{
+  Blog blog = 1;
+}
+
+service BlogService{
+  // Create Blog
+  rpc CreateBlog(BlogRequest) returns (BlogResponse) {};
+
+  //ReadBlog
+  rpc ReadBlog(ReadBlogRequest) returns (ReadBlogResponse){};
+
+  //UpdateBlog
+  rpc UpdateBlog(UpdateBlogRequest) returns (UpdateBlogResponse) {};
+
+  //DeleteBlog
+  rpc DeleteBlog(DeleteBlogRequest) returns (DeleteBlogResponse) {};
+
+  //ListBlog
+  rpc ListBlog(ListBlogRequest) returns (stream ListBlogReponse) {};
+}

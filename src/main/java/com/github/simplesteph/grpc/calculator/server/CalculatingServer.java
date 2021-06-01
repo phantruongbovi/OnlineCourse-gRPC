@@ -2,7 +2,7 @@ package com.github.simplesteph.grpc.calculator.server;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
-
+import io.grpc.protobuf.services.ProtoReflectionService;
 import java.io.File;
 import java.io.IOException;
 
@@ -17,6 +17,7 @@ public class CalculatingServer {
         // Server using SSL
         Server server = ServerBuilder.forPort(50051)
                 .addService(new CalculatingServiceImpl())
+                .addService(ProtoReflectionService.newInstance()) //reflection
                 .useTransportSecurity(
                         new File("ssl/server.crt"),
                         new File("ssl/server.pem")
