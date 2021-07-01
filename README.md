@@ -27,3 +27,12 @@
 + Great collection of projects: https://github.com/saturnism/grpc-java-by-example
 + Additional plugins: https://github.com/salesforce/grpc-java-contrib
 + Read the documentation: https://grpc.io/docs/guides/
+
+
+#Tutorial
+1. mongodb
+```
+Start mongdb: sudo systemctl start mongd
+Stop mongdb: sudo systemctl stop mongd
+Status mongdb: sudo systemctl status mongd
+```
